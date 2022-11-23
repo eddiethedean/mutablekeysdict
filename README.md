@@ -1,10 +1,11 @@
 # MutableKeysDict
 
-A pure python dictionary that allows the keys to be mutatated.
+A pure python dictionary class that allows the keys to be mutated.
 
 ## Description
 
 Use MutableKeysDict if you need a dict that can mutate the keys and still work.
+MutableKeysDict keys still need to be hashable. Use dictanykey if you need a dict that can use unhashable keys.
 
 ## Getting Started
 
