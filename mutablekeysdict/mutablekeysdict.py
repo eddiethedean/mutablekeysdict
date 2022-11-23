@@ -1,4 +1,4 @@
-from typing import Any, ItemsView, Iterator, KeysView, Mapping, Optional, ValuesView
+from typing import Any, Dict, ItemsView, Iterator, KeysView, Mapping, Optional, ValuesView
 
 class I:
     def __init__(self):
@@ -13,7 +13,7 @@ class I:
         return self
 
 
-class MutableKeysDict:
+class MutableKeysDict(Dict):
     def __init__(self, data: Optional[Mapping] = None) -> None:
         self.i = I()
         self._keys = {} # {current value: i}
@@ -35,6 +35,11 @@ class MutableKeysDict:
         if self.need_keys_reset():
             self._keys = {key: i for i, key in zip(self.i, self.keys())}
             self.data: dict = {self._keys[key]: value for key, value in zip(self._keys, self.values())}
+
+    def replace_key(self, old_key, new_key) -> None:
+        value = self[old_key]
+        self[new_key] = value
+        del self[old_key]
     
     def __dict__(self) -> dict:
         return {keys: value for keys, value in zip(self._keys.keys(), self.data)}
