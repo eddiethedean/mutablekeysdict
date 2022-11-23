@@ -1,9 +1,6 @@
 from typing import Any, ItemsView, Iterator, KeysView, Mapping, ValuesView
 
 
-"""setdefault"""
-
-
 class MutableKeysDict:
     def __init__(self, data: Mapping) -> None:
         self.data: dict = dict(data)
