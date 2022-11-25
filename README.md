@@ -22,7 +22,17 @@ MutableKeysDict keys still need to be hashable. Use dictanykey if you need a dic
 * How to run the program
 * Step-by-step bullets
 ```
-Example code to come.
+from mutablekeysdict import MutableKeysDict
+
+class HashableList(list):
+    def __hash__(self):
+        return hash(tuple(self))
+
+h = HashableList([1, 2, 3])
+d = MutableKeysDict({h: 6})
+h.append(4)
+d[h] -> 6
+
 ```
 
 ## Authors
