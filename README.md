@@ -17,10 +17,7 @@ MutableKeysDict keys still need to be hashable. Use dictanykey if you need a dic
 
 * pip install mutablekeysdict
 
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
+### Example Code
 ```
 from mutablekeysdict import MutableKeysDict
 
@@ -32,7 +29,6 @@ h = HashableList([1, 2, 3])
 d = MutableKeysDict({h: 6})
 h.append(4)
 d[h] -> 6
-
 ```
 
 ## Authors

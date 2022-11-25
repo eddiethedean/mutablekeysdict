@@ -7,7 +7,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="mutablekeysdict",
-    version="0.0.1",
+    version="0.0.2",
     description="Pure Python mutable keys dictionary class.",
     long_description=README,
     long_description_content_type="text/markdown",
