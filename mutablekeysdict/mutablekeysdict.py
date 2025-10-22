@@ -14,7 +14,7 @@ from typing import (
     overload,
 )
 
-_T = TypeVar('_T')
+_T = TypeVar("_T")
 _MISSING = object()
 
 
@@ -54,7 +54,7 @@ class MutableKeysDict(MutableMapping):
 
     def __repr__(self) -> str:
         self.reset_keys()
-        return f'MutableKeysDict({dict(self)})'
+        return f"MutableKeysDict({dict(self)})"
 
     def __getitem__(self, key) -> Any:
         self.reset_keys()
@@ -120,7 +120,7 @@ class MutableKeysDict(MutableMapping):
     def popitem(self) -> tuple:
         self.reset_keys()
         if not self._keys:
-            raise KeyError('dictionary is empty')
+            raise KeyError("dictionary is empty")
         key = next(iter(self._keys))
         index = self._keys[key]
         value = self.data[index]
@@ -158,16 +158,16 @@ class MutableKeysDict(MutableMapping):
             self[key] = default
         return self[key]
 
-    def copy(self) -> 'MutableKeysDict':
+    def copy(self) -> "MutableKeysDict":
         """Return a shallow copy of the dictionary."""
         return MutableKeysDict(dict(self))
 
     @classmethod
-    def fromkeys(cls, keys, value=None) -> 'MutableKeysDict':
+    def fromkeys(cls, keys, value=None) -> "MutableKeysDict":
         """Create a new dictionary with keys from iterable and values set to value."""
         return cls(dict.fromkeys(keys, value))
 
-    def __or__(self, other) -> 'MutableKeysDict':
+    def __or__(self, other) -> "MutableKeysDict":
         """Return self|other (dict union operator)."""
         if not isinstance(other, Mapping):
             return NotImplemented
@@ -175,7 +175,7 @@ class MutableKeysDict(MutableMapping):
         new_dict.update(other)
         return new_dict
 
-    def __ior__(self, other) -> 'MutableKeysDict':
+    def __ior__(self, other) -> "MutableKeysDict":
         """Implement self|=other (in-place dict union operator)."""
         self.update(other)
         return self
